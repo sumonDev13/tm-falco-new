@@ -1030,6 +1030,105 @@ img {
   width: auto;
 }
 
+.cert-logo-link {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-logo-link:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(46,125,50,0.2);
+}
+
+/* ---------- Facebook Reviews ---------- */
+.fb-reviews {
+  padding: 80px 0;
+  background: var(--white);
+}
+
+.fb-reviews-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.fb-icon {
+  width: 56px;
+  height: 56px;
+  background: #1877F2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.fb-reviews-header small {
+  display: block;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.fb-reviews-header h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+}
+
+.fb-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.fb-review-card {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.fb-review-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(24,119,242,0.2);
+}
+
+.fb-review-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.fb-review-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(24,119,242,0.9) 0%, transparent 50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.fb-review-card:hover .fb-review-overlay {
+  opacity: 1;
+}
+
+.fb-review-overlay span {
+  color: var(--white);
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 8px;
+}
+
 /* ---------- CTA Reviews ---------- */
 .cta-reviews {
   position: relative;
@@ -1647,6 +1746,10 @@ img {
   .cert-content {
     flex-direction: column;
     text-align: center;
+  }
+
+  .fb-reviews-grid {
+    grid-template-columns: 1fr;
   }
 
   .parallax-bg {
