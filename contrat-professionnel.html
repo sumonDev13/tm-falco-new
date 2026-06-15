@@ -11,148 +11,429 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <style>
+    /* Hero */
     .page-hero {
-      padding: 120px 0 60px;
-      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      position: relative;
+      padding: 160px 0 80px;
+      background: linear-gradient(135deg, #0d1b2a 0%, #1b3a4b 50%, #2E7D32 100%);
       color: var(--white);
       text-align: center;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(46,125,50,0.3) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,111,0,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .page-hero .container {
+      position: relative;
+      z-index: 1;
     }
     .page-hero h1 {
-      font-size: 2.2rem;
-      font-weight: 700;
+      font-size: 2.6rem;
+      font-weight: 800;
       margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .page-hero h1 span {
+      color: #4CAF50;
     }
     .page-hero p {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       opacity: 0.9;
       max-width: 700px;
-      margin: 0 auto;
+      margin: 0 auto 32px;
+      line-height: 1.7;
     }
     .page-hero-img {
       width: 100%;
-      max-height: 400px;
+      max-width: 900px;
+      max-height: 420px;
       object-fit: cover;
-      border-radius: var(--radius);
-      margin-top: 32px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      border: 3px solid rgba(255,255,255,0.1);
     }
-    .contrat-section {
-      padding: 60px 0;
+
+    /* Stats Bar */
+    .stats-bar {
+      background: var(--white);
+      padding: 0;
+      margin-top: -50px;
+      position: relative;
+      z-index: 2;
     }
-    .contrat-section:nth-child(even) {
-      background: var(--gray-bg);
-    }
-    .contrat-grid {
+    .stats-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
+      grid-template-columns: repeat(4, 1fr);
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      overflow: hidden;
     }
-    .contrat-grid.reverse {
-      direction: rtl;
+    .stat-item {
+      padding: 32px 24px;
+      text-align: center;
+      border-right: 1px solid #f0f0f0;
+      transition: all 0.3s ease;
     }
-    .contrat-grid.reverse > * {
-      direction: ltr;
+    .stat-item:last-child {
+      border-right: none;
     }
-    .contrat-text h2 {
-      font-size: 1.6rem;
+    .stat-item:hover {
+      background: #f8fdf8;
+    }
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--gray);
+      font-weight: 500;
+    }
+
+    /* Intro */
+    .contrat-intro-section {
+      padding: 80px 0 40px;
+      background: var(--white);
+    }
+    .contrat-intro-box {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .contrat-intro-box h2 {
+      font-size: 1.8rem;
       font-weight: 700;
       color: var(--dark);
       margin-bottom: 16px;
     }
-    .contrat-text h3 {
-      font-size: 1.1rem;
+    .contrat-intro-box p {
+      font-size: 1.05rem;
+      color: var(--gray);
+      line-height: 1.8;
+    }
+    .contrat-intro-box strong {
+      color: var(--primary);
+    }
+
+    /* Contract Cards Section */
+    .contrat-cards-section {
+      padding: 60px 0;
+      background: linear-gradient(180deg, #f8fdf8 0%, var(--white) 100%);
+    }
+    .contrat-cards-section .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .contrat-cards-section .section-header small {
+      display: block;
+      font-size: 0.85rem;
       font-weight: 600;
       color: var(--primary);
-      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
     }
-    .contrat-text p {
-      font-size: 0.95rem;
+    .contrat-cards-section .section-header h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .contrat-cards-section .section-header h2 span {
+      color: var(--primary);
+    }
+    .contrat-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .contrat-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      border: 1px solid #f0f0f0;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+    }
+    .contrat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+    .contrat-card:hover::before {
+      transform: scaleX(1);
+    }
+    .contrat-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(46,125,50,0.12);
+      border-color: transparent;
+    }
+    .contrat-card-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .contrat-card-body {
+      padding: 28px;
+    }
+    .contrat-card-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 50px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .contrat-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .contrat-card p {
+      font-size: 0.9rem;
       color: var(--gray);
       line-height: 1.7;
       margin-bottom: 16px;
     }
-    .contrat-list {
+    .contrat-card-list {
       list-style: none;
-      margin: 16px 0;
+      margin: 0;
+      padding: 0;
     }
-    .contrat-list li {
-      padding: 8px 0 8px 28px;
+    .contrat-card-list li {
+      padding: 6px 0 6px 24px;
       position: relative;
-      font-size: 0.92rem;
-      color: var(--gray);
-      line-height: 1.6;
+      font-size: 0.85rem;
+      color: #555;
+      line-height: 1.5;
     }
-    .contrat-list li::before {
-      content: '✔';
+    .contrat-card-list li::before {
+      content: '';
       position: absolute;
       left: 0;
+      top: 11px;
+      width: 8px;
+      height: 8px;
+      background: var(--primary);
+      border-radius: 50%;
+    }
+    .contrat-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      margin-top: 16px;
+      transition: gap 0.3s ease;
+    }
+    .contrat-card-link:hover {
+      gap: 10px;
+    }
+
+    /* Featured Section */
+    .contrat-feature-section {
+      padding: 80px 0;
+      background: var(--white);
+    }
+    .contrat-feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .contrat-feature-text h2 {
+      font-size: 2rem;
       font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 16px;
+      line-height: 1.2;
     }
-    .contrat-img {
-      width: 100%;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+    .contrat-feature-text h2 span {
+      color: var(--primary);
     }
-    .contrat-intro {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 40px;
-    }
-    .contrat-intro p {
+    .contrat-feature-text > p {
       font-size: 1rem;
       color: var(--gray);
-      line-height: 1.8;
+      line-height: 1.7;
+      margin-bottom: 24px;
     }
-    .contrat-cta {
-      text-align: center;
-      padding: 60px 0;
-      background: var(--primary);
+    .contrat-feature-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
-    .contrat-cta h2 {
-      font-size: 1.8rem;
+    .contrat-feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .contrat-feature-list li:last-child {
+      border-bottom: none;
+    }
+    .contrat-feature-icon {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .contrat-feature-icon svg {
+      width: 20px;
+      height: 20px;
+      color: var(--primary);
+    }
+    .contrat-feature-content h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 2px;
+    }
+    .contrat-feature-content p {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin: 0;
+    }
+    .contrat-feature-img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+    }
+
+    /* CTA Section */
+    .contrat-cta-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #0d1b2a 0%, #1b3a4b 50%, #2E7D32 100%);
       color: var(--white);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .contrat-cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255,111,0,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .contrat-cta-section .container {
+      position: relative;
+      z-index: 1;
+    }
+    .contrat-cta-section h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
       margin-bottom: 16px;
     }
-    .contrat-cta p {
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 24px;
-      font-size: 1rem;
+    .contrat-cta-section p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
     }
-    .btn-white {
+    .btn-cta {
       background: var(--white);
-      color: var(--primary);
-      padding: 14px 32px;
+      color: var(--primary-dark);
+      padding: 16px 40px;
       border-radius: 50px;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 1rem;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      transition: var(--transition);
+      gap: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     }
-    .btn-white:hover {
-      background: var(--dark);
+    .btn-cta:hover {
+      background: var(--accent);
       color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
     }
-    .cert-img {
-      width: 100%;
-      max-width: 400px;
-      border-radius: var(--radius);
-      margin-top: 24px;
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .stat-item:nth-child(2) {
+        border-right: none;
+      }
+      .contrat-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
     @media (max-width: 768px) {
-      .contrat-grid {
-        grid-template-columns: 1fr;
-      }
-      .contrat-grid.reverse {
-        direction: ltr;
+      .page-hero {
+        padding: 120px 0 60px;
       }
       .page-hero h1 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
       }
-      .contrat-text h2 {
-        font-size: 1.3rem;
+      .stats-grid {
+        grid-template-columns: 1fr;
+        margin: 0 16px;
+      }
+      .stat-item {
+        border-right: none;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      .stat-item:last-child {
+        border-bottom: none;
+      }
+      .contrat-cards-grid {
+        grid-template-columns: 1fr;
+      }
+      .contrat-feature-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .contrat-cta-section h2 {
+        font-size: 1.6rem;
       }
     }
   </style>
@@ -174,7 +455,7 @@
             06 50 04 21 22
           </a>
           <nav class="nav-secondary">
-<a href="actualites.html">Actualités & Conseils</a>
+            <a href="actualites.html">Actualités & Conseils</a>
             <a href="index.html#contact">Contact</a>
           </nav>
         </div>
@@ -234,165 +515,267 @@
     </div>
   </header>
 
-  <!-- Page Hero -->
+  <!-- Hero -->
   <section class="page-hero">
     <div class="container">
-      <h1>Contrats annuels professionnels aux normes HACCP en Alsace</h1>
+      <h1>Contrats annuels professionnels aux normes <span>HACCP</span> en Alsace</h1>
       <p>Nous proposons des contrats annuels professionnels conformes aux normes HACCP, intégrant la prévention des nuisibles, le nettoyage et dégraissage de cuisine professionnelle.</p>
       <img src="https://tm-falco.com/wp-content/uploads/2023/12/technicien-arrivant-lieu-intervention.jpg" alt="Technicien TM FALCO" class="page-hero-img">
     </div>
   </section>
 
-  <!-- Introduction -->
-  <section class="contrat-section">
+  <!-- Stats Bar -->
+  <section class="stats-bar">
     <div class="container">
-      <div class="contrat-intro">
-        <p>Nos prestations s'adressent aux <strong>restaurants, commerces alimentaires et établissements recevant du public (ERP)</strong> en Alsace : restaurants, commerces, boulangeries, boucheries, pizzérias, snacks, cafés, bars, bistrots, fast-foods, discothèques, cuisines collectives, etc.</p>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">4-6</div>
+          <div class="stat-label">Passages par an</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Conformité HACCP</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">7j/7</div>
+          <div class="stat-label">Disponibilité</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5D</div>
+          <div class="stat-label">Solutions complètes</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- PMS Section -->
-  <section class="contrat-section">
+  <!-- Intro -->
+  <section class="contrat-intro-section">
     <div class="container">
-      <div class="contrat-grid">
-        <div class="contrat-text">
-          <h2>Des contrats intégrés à votre Plan de Maîtrise Sanitaire (PMS)</h2>
+      <div class="contrat-intro-box">
+        <h2>Des prestations adaptées à votre établissement</h2>
+        <p>Nos prestations s'adressent aux <strong>restaurants, commerces alimentaires et établissements recevant du public (ERP)</strong> en Alsace : restaurants, boulangeries, boucheries, pizzérias, snacks, cafés, bars, bistrots, fast-foods, discothèques, cuisines collectives, etc.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contract Cards -->
+  <section class="contrat-cards-section">
+    <div class="container">
+      <div class="section-header">
+        <small>Nos contrats</small>
+        <h2>Choisissez votre <span>contrat HACCP</span></h2>
+      </div>
+      <div class="contrat-cards-grid">
+        <!-- Désinsectisation -->
+        <div class="contrat-card">
+          <img src="https://tm-falco.com/wp-content/uploads/2023/12/nid-de-guepes.png" alt="Désinsectisation" class="contrat-card-img">
+          <div class="contrat-card-body">
+            <span class="contrat-card-badge">Populaire</span>
+            <h3>Contrat Désinsectisation</h3>
+            <p>Contrôle, éloignement et traitement des insectes rampants et volants au sein de votre établissement.</p>
+            <ul class="contrat-card-list">
+              <li>Traitement préventif et curatif</li>
+              <li>Insectes rampants et volants</li>
+              <li>4 à 6 passages par an</li>
+              <li>Intégration PMS</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Dératisation -->
+        <div class="contrat-card">
+          <img src="https://tm-falco.com/wp-content/uploads/2023/12/punaises-de-lit-expert-anti-nuisible.jpg" alt="Dératisation" class="contrat-card-img">
+          <div class="contrat-card-body">
+            <span class="contrat-card-badge">Essentiel</span>
+            <h3>Contrat Dératisation</h3>
+            <p>Contrôle, prévention et traitement des rongeurs à proximité et à l'intérieur de votre établissement.</p>
+            <ul class="contrat-card-list">
+              <li>Rats, souris et autres rongeurs</li>
+              <li>Sécurisation des locaux</li>
+              <li>4 à 6 passages par an</li>
+              <li>Conformité HACCP et PMS</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Contrat Complet -->
+        <div class="contrat-card">
+          <img src="https://tm-falco.com/wp-content/uploads/2023/12/Frelon-asiatique-1200x678-1.jpeg" alt="Contrat complet" class="contrat-card-img">
+          <div class="contrat-card-body">
+            <span class="contrat-card-badge" style="background: linear-gradient(135deg, #FF6F00 0%, #FFA000 100%);">Recommandé</span>
+            <h3>Contrat HACCP Complet</h3>
+            <p>Combine dératisation et désinsectisation pour une protection optimale et conformité HACCP à 100%.</p>
+            <ul class="contrat-card-list">
+              <li>Solution globale et économique</li>
+              <li>Suivi, traçabilité et documents PMS</li>
+              <li>4 à 6 fois par an</li>
+              <li>Idéal pour les ERP alimentaires</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature: PMS -->
+  <section class="contrat-feature-section">
+    <div class="container">
+      <div class="contrat-feature-grid">
+        <div class="contrat-feature-text">
+          <small style="display:block;font-size:0.85rem;font-weight:600;color:var(--primary);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">Plan de Maîtrise Sanitaire</small>
+          <h2>Des contrats intégrés à votre <span>PMS</span></h2>
           <p>L'ensemble de nos interventions s'intègre pleinement dans votre <strong>Plan de Maîtrise Sanitaire</strong>, document obligatoire pour les établissements manipulant des denrées alimentaires.</p>
-          <p>Nos prestations contribuent à :</p>
-          <ul class="contrat-list">
-            <li>La maîtrise des risques sanitaires</li>
-            <li>La prévention des contaminations biologiques</li>
-            <li>La traçabilité des actions d'hygiène</li>
-            <li>La conformité lors des contrôles vétérinaires et sanitaires</li>
-          </ul>
-          <p>Des <strong>documents de suivi et attestations d'intervention</strong> peuvent être fournis afin d'alimenter votre PMS.</p>
-        </div>
-        <div>
-          <img src="https://tm-falco.com/wp-content/uploads/2025/12/HACCPhotte-725x1024.png" alt="HACCP Hotte" class="contrat-img">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Désinsectisation Section -->
-  <section class="contrat-section">
-    <div class="container">
-      <div class="contrat-grid reverse">
-        <div class="contrat-text">
-          <h2>Contrat annuel de désinsectisation – Normes HACCP</h2>
-          <p>Le <strong>contrat annuel de désinsectisation</strong> permet d'assurer le contrôle, l'éloignement et le traitement des insectes rampants et volants au sein de votre établissement professionnel en Alsace.</p>
-          <ul class="contrat-list">
-            <li>Traitement préventif et curatif</li>
-            <li>Insectes rampants et volants</li>
-            <li>Interventions régulières : <strong>4 à 6 passages par an</strong></li>
-            <li>Intégration au Plan de Maîtrise Sanitaire (PMS)</li>
-          </ul>
-        </div>
-        <div>
-          <img src="https://tm-falco.com/wp-content/uploads/2023/12/nid-de-guepes.png" alt="Désinsectisation" class="contrat-img">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Dératisation Section -->
-  <section class="contrat-section">
-    <div class="container">
-      <div class="contrat-grid">
-        <div class="contrat-text">
-          <h2>Contrat annuel de dératisation – Normes HACCP</h2>
-          <p>Le <strong>contrat annuel de dératisation</strong> assure le contrôle, la prévention et le traitement des rongeurs à proximité et à l'intérieur de votre restaurant ou commerce en Alsace.</p>
-          <ul class="contrat-list">
-            <li>Rats, souris et autres rongeurs</li>
-            <li>Sécurisation des locaux</li>
-            <li>Interventions planifiées : <strong>4 à 6 passages par an</strong></li>
-            <li>Conformité HACCP et PMS</li>
+          <ul class="contrat-feature-list">
+            <li>
+              <div class="contrat-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="contrat-feature-content">
+                <h4>Maîtrise des risques sanitaires</h4>
+                <p>Prévention proactive des dangers</p>
+              </div>
+            </li>
+            <li>
+              <div class="contrat-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              </div>
+              <div class="contrat-feature-content">
+                <h4>Traçabilité des actions</h4>
+                <p>Documents et attestations fournis</p>
+              </div>
+            </li>
+            <li>
+              <div class="contrat-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <div class="contrat-feature-content">
+                <h4>Conformité réglementaire</h4>
+                <p>Réussite des contrôles sanitaires</p>
+              </div>
+            </li>
+            <li>
+              <div class="contrat-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="contrat-feature-content">
+                <h4>Interventions planifiées</h4>
+                <p>4 à 6 passages par an selon vos besoins</p>
+              </div>
+            </li>
           </ul>
         </div>
         <div>
-          <img src="https://tm-falco.com/wp-content/uploads/2023/12/punaises-de-lit-expert-anti-nuisible.jpg" alt="Dératisation" class="contrat-img">
+          <img src="https://tm-falco.com/wp-content/uploads/2025/12/HACCPhotte-725x1024.png" alt="HACCP Hotte" class="contrat-feature-img">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contrat Complet Section -->
-  <section class="contrat-section">
+  <!-- Feature: Nettoyage -->
+  <section class="contrat-feature-section" style="background: linear-gradient(180deg, #f8fdf8 0%, var(--white) 100%);">
     <div class="container">
-      <div class="contrat-grid reverse">
-        <div class="contrat-text">
-          <h2>Contrat annuel HACCP (dératisation + désinsectisation)</h2>
-          <p>Ce <strong>contrat HACCP complet</strong> combine la dératisation et la désinsectisation afin d'assurer une protection optimale contre les nuisibles et une <strong>conformité HACCP à 100%</strong>.</p>
-          <ul class="contrat-list">
-            <li>Solution globale et économique</li>
-            <li>Suivi, traçabilité et documents PMS</li>
-            <li>Interventions <strong>4 à 6 fois par an</strong></li>
-            <li>Idéal pour les établissements alimentaires en Alsace</li>
+      <div class="contrat-feature-grid" style="direction:rtl;">
+        <div style="direction:ltr;">
+          <img src="https://tm-falco.com/wp-content/uploads/2023/11/isinfection-of-premises-from-insects-and-rodents-with-chemicals.jpg_s1024x1024wisk20cRBXJHJNTAvLNTJG-Nt5nSB2xkUfRlIdP8kM_UtmPyH0-1-1170x508-1.jpg" alt="Nettoyage cuisine" class="contrat-feature-img">
+        </div>
+        <div class="contrat-feature-text" style="direction:ltr;">
+          <small style="display:block;font-size:0.85rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">Option complémentaire</small>
+          <h2>Nettoyage et <span>dégraissage</span> professionnel</h2>
+          <p>En complément de nos contrats HACCP, nous proposons une option de nettoyage et dégraissage de cuisine professionnelle, élément clé du PMS.</p>
+          <ul class="contrat-feature-list">
+            <li>
+              <div class="contrat-feature-icon" style="background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#FF6F00;"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+              </div>
+              <div class="contrat-feature-content">
+                <h4>Dégraissage de hotte professionnelle</h4>
+                <p>Carcasse, conduit, bac receveur et filtres</p>
+              </div>
+            </li>
+            <li>
+              <div class="contrat-feature-icon" style="background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#FF6F00;"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+              </div>
+              <div class="contrat-feature-content">
+                <h4>Décapage des équipements</h4>
+                <p>Fours, friteuses, plaques, surfaces inox</p>
+              </div>
+            </li>
+            <li>
+              <div class="contrat-feature-icon" style="background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#FF6F00;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="contrat-feature-content">
+                <h4>Maîtrise des risques</h4>
+                <p>Incendie et sanitaires</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conformité -->
+  <section class="contrat-feature-section">
+    <div class="container">
+      <div class="contrat-feature-grid">
+        <div class="contrat-feature-text">
+          <small style="display:block;font-size:0.85rem;font-weight:600;color:var(--primary);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">Conformité</small>
+          <h2>Obligations <span>réglementaires</span></h2>
+          <p>Nos contrats s'inscrivent dans le respect de la réglementation en vigueur pour garantir votre conformité.</p>
+          <ul class="contrat-feature-list">
+            <li>
+              <div class="contrat-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="contrat-feature-content">
+                <h4>Règlement (CE) n°852/2004</h4>
+                <p>Hygiène des denrées alimentaires</p>
+              </div>
+            </li>
+            <li>
+              <div class="contrat-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <div class="contrat-feature-content">
+                <h4>Exigences HACCP</h4>
+                <p>Normes internationales d'hygiène</p>
+              </div>
+            </li>
+            <li>
+              <div class="contrat-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <div class="contrat-feature-content">
+                <h4>Plan de Maîtrise Sanitaire</h4>
+                <p>Document obligatoire alimenté</p>
+              </div>
+            </li>
+            <li>
+              <div class="contrat-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              </div>
+              <div class="contrat-feature-content">
+                <h4>Sécurité et hygiène ERP</h4>
+                <p>Conformité pour établissements recevant du public</p>
+              </div>
+            </li>
           </ul>
         </div>
         <div>
-          <img src="https://tm-falco.com/wp-content/uploads/2023/12/Frelon-asiatique-1200x678-1.jpeg" alt="Contrat HACCP complet" class="contrat-img">
+          <img src="http://tm-falco.com/wp-content/uploads/2023/12/1-CERTIFICATION-exemple-2-pdf-1024x724.jpg" alt="Certification HACCP" class="contrat-feature-img" style="max-width:450px;margin:0 auto;display:block;">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Nettoyage Section -->
-  <section class="contrat-section">
+  <!-- CTA -->
+  <section class="contrat-cta-section">
     <div class="container">
-      <div class="contrat-grid">
-        <div class="contrat-text">
-          <h2>Option nettoyage et dégraissage de cuisine professionnelle (PMS)</h2>
-          <p>En complément de nos contrats HACCP, nous proposons une <strong>option de nettoyage et dégraissage de cuisine professionnelle</strong>, élément clé du Plan de Maîtrise Sanitaire.</p>
-          <h3>Dégraissage de hotte professionnelle</h3>
-          <ul class="contrat-list">
-            <li>Dégraissage et désinfection de la carcasse de la hotte</li>
-            <li>Nettoyage du conduit d'extraction</li>
-            <li>Dégraissage du bac receveur</li>
-            <li>Nettoyage et désinfection des filtres</li>
-          </ul>
-          <h3>Nettoyage et décapage des équipements</h3>
-          <ul class="contrat-list">
-            <li>Fours professionnels</li>
-            <li>Friteuses</li>
-            <li>Plaques de cuisson, pianos, grills</li>
-            <li>Surfaces inox, crédences, plans de travail</li>
-          </ul>
-        </div>
-        <div>
-          <img src="https://tm-falco.com/wp-content/uploads/2023/11/isinfection-of-premises-from-insects-and-rodents-with-chemicals.jpg_s1024x1024wisk20cRBXJHJNTAvLNTJG-Nt5nSB2xkUfRlIdP8kM_UtmPyH0-1-1170x508-1.jpg" alt="Nettoyage cuisine" class="contrat-img">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Conformité Section -->
-  <section class="contrat-section">
-    <div class="container">
-      <div class="contrat-intro">
-        <h2>Conformité réglementaire et obligations sanitaires</h2>
-        <p>Nos contrats s'inscrivent dans le respect :</p>
-        <ul class="contrat-list" style="text-align:left; display:inline-block;">
-          <li>Du Règlement (CE) n°852/2004</li>
-          <li>Des exigences HACCP</li>
-          <li>Des obligations liées au Plan de Maîtrise Sanitaire</li>
-          <li>Des règles de sécurité et d'hygiène applicables aux ERP</li>
-        </ul>
-        <p style="margin-top:16px;">Nous accompagnons les professionnels pour sécuriser leur activité et <strong>réussir les contrôles sanitaires</strong> en toute sérénité.</p>
-        <img src="http://tm-falco.com/wp-content/uploads/2023/12/1-CERTIFICATION-exemple-2-pdf-1024x724.jpg" alt="Certification" class="cert-img">
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="contrat-cta">
-    <div class="container">
-      <h2>Contrats professionnels HACCP et PMS en Alsace</h2>
-      <p>Nos contrats HACCP intégrant le PMS, la lutte contre les nuisibles et le nettoyage de cuisine professionnelle sont adaptés à votre activité et à vos contraintes.</p>
-      <a href="index.html#contact" class="btn-white">
-        Contactez-nous pour un devis personnalisé
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <h2>Prêt à sécuriser votre établissement ?</h2>
+      <p>Contactez-nous pour un devis personnalisé ou pour mettre en place un contrat annuel professionnel conforme au Plan de Maîtrise Sanitaire en Alsace.</p>
+      <a href="index.html#contact" class="btn-cta">
+        Demander un devis gratuit
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
   </section>
@@ -438,7 +821,7 @@
             <h4>Entreprise</h4>
             <ul>
               <li><a href="contrat-professionnel.html">Contrat Professionnel</a></li>
-<li><a href="actualites.html">Actualités & Conseils</a></li>
+              <li><a href="actualites.html">Actualités & Conseils</a></li>
               <li><a href="index.html#contact">Contact</a></li>
               <li><a href="index.html#contact">Devis gratuit</a></li>
             </ul>
