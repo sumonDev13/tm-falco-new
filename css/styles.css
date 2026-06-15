@@ -181,7 +181,9 @@ img {
   visibility: hidden;
 }
 
-.loader svg {
+.loader-logo {
+  width: 140px;
+  height: auto;
   animation: pulse 1.5s ease-in-out infinite;
 }
 
