@@ -64,6 +64,19 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', closeMobileNav);
   });
 
+  // ---- Mobile dropdown toggle ----
+  const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+  mobileDropdownToggles.forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const parent = toggle.closest('.mobile-dropdown');
+      parent.classList.toggle('open');
+      const menu = parent.querySelector('.mobile-dropdown-menu');
+      if (menu) menu.classList.toggle('open');
+    });
+  });
+
   // ---- Hero Slideshow ----
   const heroSlides = document.querySelectorAll('.hero-slide');
   let currentSlide = 0;
