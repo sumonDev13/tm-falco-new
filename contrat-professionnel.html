@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contrat Professionnel HACCP - TM FALCO</title>
+  <meta name="description" content="Contrats annuels professionnels conformes aux normes HACCP en Alsace. Prévention des nuisibles, nettoyage et dégraissage de cuisine professionnelle.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .page-hero {
+      padding: 120px 0 60px;
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: var(--white);
+      text-align: center;
+    }
+    .page-hero h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .page-hero p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .page-hero-img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      margin-top: 32px;
+    }
+    .contrat-section {
+      padding: 60px 0;
+    }
+    .contrat-section:nth-child(even) {
+      background: var(--gray-bg);
+    }
+    .contrat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .contrat-grid.reverse {
+      direction: rtl;
+    }
+    .contrat-grid.reverse > * {
+      direction: ltr;
+    }
+    .contrat-text h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+    .contrat-text h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .contrat-text p {
+      font-size: 0.95rem;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .contrat-list {
+      list-style: none;
+      margin: 16px 0;
+    }
+    .contrat-list li {
+      padding: 8px 0 8px 28px;
+      position: relative;
+      font-size: 0.92rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+    .contrat-list li::before {
+      content: '✔';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .contrat-img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .contrat-intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 40px;
+    }
+    .contrat-intro p {
+      font-size: 1rem;
+      color: var(--gray);
+      line-height: 1.8;
+    }
+    .contrat-cta {
+      text-align: center;
+      padding: 60px 0;
+      background: var(--primary);
+    }
+    .contrat-cta h2 {
+      font-size: 1.8rem;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .contrat-cta p {
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 24px;
+      font-size: 1rem;
+    }
+    .btn-white {
+      background: var(--white);
+      color: var(--primary);
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+    .btn-white:hover {
+      background: var(--dark);
+      color: var(--white);
+    }
+    .cert-img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: var(--radius);
+      margin-top: 24px;
+    }
+    @media (max-width: 768px) {
+      .contrat-grid {
+        grid-template-columns: 1fr;
+      }
+      .contrat-grid.reverse {
+        direction: ltr;
+      }
+      .page-hero h1 {
+        font-size: 1.6rem;
+      }
+      .contrat-text h2 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Loader -->
+  <div id="loader" class="loader">
+    <svg viewBox="0 0 267.3 231.4" width="120" height="104">
+      <path fill="#2E7D32" d="M187.4,115.1V55.4c0-0.2,0.2-0.4,0.4-0.4l36.7-3.5c0.4,0,0.6,0.1,0.6,0.5v107.5c0,0.1-0.1,0.1-0.1,0.2l-45.6,4.4c-0.3,0-0.5-0.1-0.7-0.4L154,111.7c-0.4-0.8-0.5-0.7-0.5,0.1v54.2c0,0.4-0.2,0.6-0.6,0.6l-36.8,3.5c-0.2,0-0.3-0.1-0.3-0.3c0-11.3,0-41.4,0-90.5c0-1.4-0.3-2.7-1-3.9c-2.2-3.9-4.6-8.1-7-12.5c-0.1-0.1,0-0.2,0.1-0.3c0,0,0,0,0.1,0l51.3-4.9c0.2,0,0.4,0.1,0.5,0.3l27,57.2C187.2,116.3,187.4,116.2,187.4,115.1z"/>
+      <path fill="#2E7D32" d="M94.8,174.3l8.6,11.2L55,190.3c-0.4,0-0.6-0.1-0.6-0.5l-1.1-11.2c0-0.1,0.1-0.2,0.2-0.2L94.8,174.3z"/>
+      <path fill="#2E7D32" d="M84.8,156.4l6,11.5L37,173.4c-0.2,0-0.4-0.1-0.4-0.3c0,0,0,0,0,0l-1.1-11.1c0-0.3,0.1-0.5,0.4-0.5L84.8,156.4z"/>
+      <path fill="#2E7D32" d="M78.1,137.5l3.7,11.6l-70.3,6.8c-0.3,0-0.6-0.2-0.6-0.5c0,0,0,0,0,0l-1.1-10.2V144L78.1,137.5z"/>
+      <path fill="#fff" d="M103.4,185.5l-8.6-11.2l-4-6.3l-6-11.5l-3.1-7.3l-3.7-11.6c-1.1-4.2-2-7.9-2.5-11.1c-1.7-10.7-2.7-25.8-3.5-33.5c-2.3-23.2-3.7-36.5-4-40.1c-0.4-4.3,0.9-7.4,3.9-9.2c1.3-0.8,4.2-1.4,8.7-2c26.1-3.1,48.8-13.4,68.2-31c2.3-2,4-3.2,5.1-3.5c3-0.8,5.6-0.2,8.5,1.6c23.4,14.4,49.3,20.2,77.7,17.5c4.2-0.4,7.2,0.9,8.9,3.8c0.8,1.4,1.4,4.2,1.9,8.4c2.3,24,4.3,45.5,6.1,64.3c1.6,17.4-0.6,34.1-6.6,50.3c-7.8,20.9-20.2,38.3-37.4,52.2c-10.6,8.6-22.6,14.9-36.1,18.9c-1.1,0.3-2.4,0.3-3.7-0.1c-2-0.6-3.2-0.9-3.5-0.9C143.2,218.3,121.1,205.7,103.4,185.5z M175.7,210.7c0.1,0,0.2,0,0.2,0c42.1-13.9,69.3-55.5,69-99.3c0-4.2-0.4-9.9-1.2-17.2c-1.3-12.8-3-30.8-5.2-54c0-0.3-0.2-0.5-0.5-0.4c-28.8,2.3-55.5-3.9-80.2-18.5c-0.2-0.1-0.4-0.2-0.6-0.1s-0.4,0.1-0.6,0.3C135.2,40.4,110.2,51.7,81.5,55c-0.3,0-0.5,0.2-0.4,0.5c2.3,23.2,4.1,41.1,5.3,54c0.7,7.3,1.4,13.1,2.2,17.1c8.1,43,42.9,78.6,86.9,84C175.5,210.7,175.6,210.7,175.7,210.7z"/>
+    </svg>
+  </div>
+
+  <!-- Header Top Bar -->
+  <header id="header">
+    <div class="header-top">
+      <div class="container flex align-center justify-between">
+        <div class="header-left flex align-center gap-16">
+          <a href="tel:+33650042122" class="header-phone">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            06 50 04 21 22
+          </a>
+          <nav class="nav-secondary">
+            <a href="index.html#actualites">Actualités & Conseils</a>
+            <a href="index.html#contact">Contact</a>
+          </nav>
+        </div>
+        <div class="header-right flex align-center gap-16">
+          <div class="social-icons">
+            <a href="https://www.facebook.com/profile.php?id=100095733000317" target="_blank" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="https://instagram.com/tm.falco" target="_blank" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+            </a>
+            <a href="https://linkedin.com/company/98608122" target="_blank" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+          <a href="index.html#contact" class="btn btn-primary btn-sm">Devis Gratuit</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <div class="header-main">
+      <div class="container flex align-center justify-between">
+        <a href="index.html" class="logo flex align-center gap-12">
+          <img src="https://tm-falco.com/wp-content/uploads/2025/12/cropped-New-logo-2-NH.png" alt="TM FALCO" class="logo-img">
+        </a>
+        <nav class="nav-primary" id="navPrimary">
+          <ul class="nav-list flex align-center gap-8">
+            <li><a href="index.html" class="nav-link">Accueil</a></li>
+            <li class="nav-dropdown">
+              <a href="#" class="nav-link dropdown-toggle">Nos Services
+                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="index.html#services">Désinsectisation</a></li>
+                <li><a href="index.html#deratisation">Dératisation</a></li>
+                <li><a href="index.html#degraissage">Dégraissage</a></li>
+                <li><a href="index.html#desinfection">Désinfection</a></li>
+                <li><a href="index.html#decapage">Décapage</a></li>
+                <li><a href="index.html#nettoyage">Nettoyage</a></li>
+              </ul>
+            </li>
+            <li><a href="https://nuisibleshop.fr/?gad_source=1&gad_campaignid=21800610392&gbraid=0AAAAADo9A7y_FSuqTrNFE_hy7Q62-6dBh&gclid=Cj0KCQjw3K7RBhDJARIsAKRtP5RW2oXgaMtG9FUva8Pi0NoOBdj2jFQJir_sIJC3gy-GLWZHlvJ96CQaAsN4EALw_wcB" target="_blank" rel="noopener noreferrer" class="nav-link">Nuisishop</a></li>
+            <li><a href="index.html#actualites" class="nav-link">Actualités & Conseils</a></li>
+            <li><a href="contrat-professionnel.html" class="nav-link active">Contrat Pro</a></li>
+            <li><a href="index.html#contact" class="nav-link">Contacts</a></li>
+          </ul>
+        </nav>
+        <a href="tel:+33650042122" class="btn btn-urgence show-desktop">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Appel d'urgence
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Contrats annuels professionnels aux normes HACCP en Alsace</h1>
+      <p>Nous proposons des contrats annuels professionnels conformes aux normes HACCP, intégrant la prévention des nuisibles, le nettoyage et dégraissage de cuisine professionnelle.</p>
+      <img src="https://tm-falco.com/wp-content/uploads/2023/12/technicien-arrivant-lieu-intervention.jpg" alt="Technicien TM FALCO" class="page-hero-img">
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="contrat-section">
+    <div class="container">
+      <div class="contrat-intro">
+        <p>Nos prestations s'adressent aux <strong>restaurants, commerces alimentaires et établissements recevant du public (ERP)</strong> en Alsace : restaurants, commerces, boulangeries, boucheries, pizzérias, snacks, cafés, bars, bistrots, fast-foods, discothèques, cuisines collectives, etc.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PMS Section -->
+  <section class="contrat-section">
+    <div class="container">
+      <div class="contrat-grid">
+        <div class="contrat-text">
+          <h2>Des contrats intégrés à votre Plan de Maîtrise Sanitaire (PMS)</h2>
+          <p>L'ensemble de nos interventions s'intègre pleinement dans votre <strong>Plan de Maîtrise Sanitaire</strong>, document obligatoire pour les établissements manipulant des denrées alimentaires.</p>
+          <p>Nos prestations contribuent à :</p>
+          <ul class="contrat-list">
+            <li>La maîtrise des risques sanitaires</li>
+            <li>La prévention des contaminations biologiques</li>
+            <li>La traçabilité des actions d'hygiène</li>
+            <li>La conformité lors des contrôles vétérinaires et sanitaires</li>
+          </ul>
+          <p>Des <strong>documents de suivi et attestations d'intervention</strong> peuvent être fournis afin d'alimenter votre PMS.</p>
+        </div>
+        <div>
+          <img src="https://tm-falco.com/wp-content/uploads/2025/12/HACCPhotte-725x1024.png" alt="HACCP Hotte" class="contrat-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Désinsectisation Section -->
+  <section class="contrat-section">
+    <div class="container">
+      <div class="contrat-grid reverse">
+        <div class="contrat-text">
+          <h2>Contrat annuel de désinsectisation – Normes HACCP</h2>
+          <p>Le <strong>contrat annuel de désinsectisation</strong> permet d'assurer le contrôle, l'éloignement et le traitement des insectes rampants et volants au sein de votre établissement professionnel en Alsace.</p>
+          <ul class="contrat-list">
+            <li>Traitement préventif et curatif</li>
+            <li>Insectes rampants et volants</li>
+            <li>Interventions régulières : <strong>4 à 6 passages par an</strong></li>
+            <li>Intégration au Plan de Maîtrise Sanitaire (PMS)</li>
+          </ul>
+        </div>
+        <div>
+          <img src="https://tm-falco.com/wp-content/uploads/2023/12/nid-de-guepes.png" alt="Désinsectisation" class="contrat-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dératisation Section -->
+  <section class="contrat-section">
+    <div class="container">
+      <div class="contrat-grid">
+        <div class="contrat-text">
+          <h2>Contrat annuel de dératisation – Normes HACCP</h2>
+          <p>Le <strong>contrat annuel de dératisation</strong> assure le contrôle, la prévention et le traitement des rongeurs à proximité et à l'intérieur de votre restaurant ou commerce en Alsace.</p>
+          <ul class="contrat-list">
+            <li>Rats, souris et autres rongeurs</li>
+            <li>Sécurisation des locaux</li>
+            <li>Interventions planifiées : <strong>4 à 6 passages par an</strong></li>
+            <li>Conformité HACCP et PMS</li>
+          </ul>
+        </div>
+        <div>
+          <img src="https://tm-falco.com/wp-content/uploads/2023/12/punaises-de-lit-expert-anti-nuisible.jpg" alt="Dératisation" class="contrat-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contrat Complet Section -->
+  <section class="contrat-section">
+    <div class="container">
+      <div class="contrat-grid reverse">
+        <div class="contrat-text">
+          <h2>Contrat annuel HACCP (dératisation + désinsectisation)</h2>
+          <p>Ce <strong>contrat HACCP complet</strong> combine la dératisation et la désinsectisation afin d'assurer une protection optimale contre les nuisibles et une <strong>conformité HACCP à 100%</strong>.</p>
+          <ul class="contrat-list">
+            <li>Solution globale et économique</li>
+            <li>Suivi, traçabilité et documents PMS</li>
+            <li>Interventions <strong>4 à 6 fois par an</strong></li>
+            <li>Idéal pour les établissements alimentaires en Alsace</li>
+          </ul>
+        </div>
+        <div>
+          <img src="https://tm-falco.com/wp-content/uploads/2023/12/Frelon-asiatique-1200x678-1.jpeg" alt="Contrat HACCP complet" class="contrat-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nettoyage Section -->
+  <section class="contrat-section">
+    <div class="container">
+      <div class="contrat-grid">
+        <div class="contrat-text">
+          <h2>Option nettoyage et dégraissage de cuisine professionnelle (PMS)</h2>
+          <p>En complément de nos contrats HACCP, nous proposons une <strong>option de nettoyage et dégraissage de cuisine professionnelle</strong>, élément clé du Plan de Maîtrise Sanitaire.</p>
+          <h3>Dégraissage de hotte professionnelle</h3>
+          <ul class="contrat-list">
+            <li>Dégraissage et désinfection de la carcasse de la hotte</li>
+            <li>Nettoyage du conduit d'extraction</li>
+            <li>Dégraissage du bac receveur</li>
+            <li>Nettoyage et désinfection des filtres</li>
+          </ul>
+          <h3>Nettoyage et décapage des équipements</h3>
+          <ul class="contrat-list">
+            <li>Fours professionnels</li>
+            <li>Friteuses</li>
+            <li>Plaques de cuisson, pianos, grills</li>
+            <li>Surfaces inox, crédences, plans de travail</li>
+          </ul>
+        </div>
+        <div>
+          <img src="https://tm-falco.com/wp-content/uploads/2023/11/isinfection-of-premises-from-insects-and-rodents-with-chemicals.jpg_s1024x1024wisk20cRBXJHJNTAvLNTJG-Nt5nSB2xkUfRlIdP8kM_UtmPyH0-1-1170x508-1.jpg" alt="Nettoyage cuisine" class="contrat-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conformité Section -->
+  <section class="contrat-section">
+    <div class="container">
+      <div class="contrat-intro">
+        <h2>Conformité réglementaire et obligations sanitaires</h2>
+        <p>Nos contrats s'inscrivent dans le respect :</p>
+        <ul class="contrat-list" style="text-align:left; display:inline-block;">
+          <li>Du Règlement (CE) n°852/2004</li>
+          <li>Des exigences HACCP</li>
+          <li>Des obligations liées au Plan de Maîtrise Sanitaire</li>
+          <li>Des règles de sécurité et d'hygiène applicables aux ERP</li>
+        </ul>
+        <p style="margin-top:16px;">Nous accompagnons les professionnels pour sécuriser leur activité et <strong>réussir les contrôles sanitaires</strong> en toute sérénité.</p>
+        <img src="http://tm-falco.com/wp-content/uploads/2023/12/1-CERTIFICATION-exemple-2-pdf-1024x724.jpg" alt="Certification" class="cert-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="contrat-cta">
+    <div class="container">
+      <h2>Contrats professionnels HACCP et PMS en Alsace</h2>
+      <p>Nos contrats HACCP intégrant le PMS, la lutte contre les nuisibles et le nettoyage de cuisine professionnelle sont adaptés à votre activité et à vos contraintes.</p>
+      <a href="index.html#contact" class="btn-white">
+        Contactez-nous pour un devis personnalisé
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer">
+    <div class="footer-main">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <img src="https://tm-falco.com/wp-content/uploads/2025/12/cropped-New-logo-2-NH.png" alt="TM FALCO" class="footer-logo">
+            <p class="footer-desc">Votre spécialiste alsacien en prévention et neutralisation des nuisibles et salissures industrielles. Solutions complètes 5D.</p>
+            <div class="footer-social">
+              <a href="https://www.facebook.com/profile.php?id=100095733000317" target="_blank" aria-label="Facebook">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+              </a>
+              <a href="https://instagram.com/tm.falco" target="_blank" aria-label="Instagram">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+              </a>
+              <a href="https://linkedin.com/company/98608122" target="_blank" aria-label="LinkedIn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+              <a href="https://x.com/tmfalco" target="_blank" aria-label="X (Twitter)">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href="https://www.tiktok.com/@tmfalco0" target="_blank" aria-label="TikTok">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .56.04.81.13V9.01a6.32 6.32 0 00-.81-.05A6.34 6.34 0 003.15 15.3a6.34 6.34 0 0010.86 4.48V13.2a8.16 8.16 0 004.77 1.52V11.3a4.85 4.85 0 01-.81-.09v-.01l.62-.01z"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="index.html#services">Désinsectisation</a></li>
+              <li><a href="index.html#deratisation">Dératisation</a></li>
+              <li><a href="index.html#degraissage">Dégraissage</a></li>
+              <li><a href="index.html#services">Désinfection</a></li>
+              <li><a href="index.html#services">Guêpes & Frelons</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Entreprise</h4>
+            <ul>
+              <li><a href="contrat-professionnel.html">Contrat Professionnel</a></li>
+              <li><a href="index.html#actualites">Actualités & Conseils</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li><a href="index.html#contact">Devis gratuit</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <ul class="footer-contact">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                <a href="tel:+33650042122">06 50 04 21 22</a>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>7 jours sur 7</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Région Alsace</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container flex align-center justify-between">
+        <span>&copy; 2026 TM FALCO. Tous droits réservés.</span>
+        <div class="footer-legal">
+          <a href="#">Mentions légales</a>
+          <a href="#">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button id="scrollTop" class="scroll-top" aria-label="Retour en haut">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay">
+    <div class="mobile-nav">
+      <div class="mobile-nav-header">
+        <img src="https://tm-falco.com/wp-content/uploads/2025/12/cropped-New-logo-2-NH.png" alt="TM FALCO" class="mobile-logo">
+        <button class="mobile-close" id="mobileClose" aria-label="Fermer">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <ul class="mobile-nav-list">
+        <li><a href="index.html">Accueil</a></li>
+        <li class="mobile-dropdown">
+          <a href="#" class="mobile-dropdown-toggle">Nos Services
+            <svg class="mobile-dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <ul class="mobile-dropdown-menu">
+            <li><a href="index.html#services">Désinsectisation</a></li>
+            <li><a href="index.html#deratisation">Dératisation</a></li>
+            <li><a href="index.html#degraissage">Dégraissage</a></li>
+            <li><a href="index.html#desinfection">Désinfection</a></li>
+            <li><a href="index.html#decapage">Décapage</a></li>
+            <li><a href="index.html#nettoyage">Nettoyage</a></li>
+          </ul>
+        </li>
+        <li><a href="https://nuisibleshop.fr/?gad_source=1&gad_campaignid=21800610392&gbraid=0AAAAADo9A7y_FSuqTrNFE_hy7Q62-6dBh&gclid=Cj0KCQjw3K7RBhDJARIsAKRtP5RW2oXgaMtG9FUva8Pi0NoOBdj2jFQJir_sIJC3gy-GLWZHlvJ96CQaAsN4EALw_wcB" target="_blank" rel="noopener noreferrer">Nuisishop</a></li>
+        <li><a href="index.html#actualites">Actualités & Conseils</a></li>
+        <li><a href="contrat-professionnel.html" class="active">Contrat Pro</a></li>
+        <li><a href="index.html#contact">Contacts</a></li>
+      </ul>
+      <a href="tel:+33650042122" class="btn btn-primary btn-full">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Appel d'urgence
+      </a>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
