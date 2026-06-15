@@ -825,42 +825,68 @@ img {
 /* ---------- 5D Details ---------- */
 .details-5d {
   padding: 80px 0;
-  background: var(--white);
+  background: linear-gradient(180deg, var(--gray-bg) 0%, var(--white) 100%);
 }
 
 .details-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 16px;
 }
 
 .detail-card {
-  padding: 32px;
+  padding: 36px 28px;
   border-radius: var(--radius);
+  background: var(--white);
   border: 1px solid #eee;
-  transition: var(--transition);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.detail-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.detail-card:hover::before {
+  transform: scaleX(1);
 }
 
 .detail-card:hover {
-  border-color: var(--primary);
-  box-shadow: 0 4px 20px rgba(46,125,50,0.1);
-  transform: translateY(-4px);
+  border-color: transparent;
+  box-shadow: 0 12px 40px rgba(46,125,50,0.12);
+  transform: translateY(-6px);
 }
 
 .detail-icon {
-  width: 52px;
-  height: 52px;
-  background: var(--primary);
-  border-radius: var(--radius-sm);
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.detail-card:hover .detail-icon {
+  transform: scale(1.08);
 }
 
 .detail-icon svg {
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   color: var(--white);
 }
 
@@ -868,12 +894,29 @@ img {
   font-size: 1.15rem;
   font-weight: 700;
   margin-bottom: 10px;
+  color: var(--dark);
 }
 
 .detail-card p {
   font-size: 0.9rem;
   color: var(--gray);
   line-height: 1.7;
+}
+
+/* 6 cards: 3x2 grid */
+@media (max-width: 1024px) {
+  .details-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+  .detail-card {
+    padding: 28px 24px;
+  }
 }
 
 /* ---------- Certifications ---------- */
@@ -1599,10 +1642,6 @@ img {
     grid-template-columns: 1fr;
     max-width: 400px;
     margin: 0 auto;
-  }
-
-  .details-grid {
-    grid-template-columns: 1fr;
   }
 
   .footer-grid {
