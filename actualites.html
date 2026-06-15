@@ -11,151 +11,378 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <style>
+    /* Hero */
     .page-hero {
-      padding: 120px 0 60px;
-      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      position: relative;
+      padding: 160px 0 80px;
+      background: linear-gradient(135deg, #0d1b2a 0%, #1b3a4b 50%, #2E7D32 100%);
       color: var(--white);
       text-align: center;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(46,125,50,0.3) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,111,0,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .page-hero .container {
+      position: relative;
+      z-index: 1;
     }
     .page-hero h1 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .page-hero h1 span {
+      color: #4CAF50;
+    }
+    .page-hero p {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+      background: var(--white);
+      padding: 0;
+      margin-top: -50px;
+      position: relative;
+      z-index: 2;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .stat-item {
+      padding: 32px 24px;
+      text-align: center;
+      border-right: 1px solid #f0f0f0;
+      transition: all 0.3s ease;
+    }
+    .stat-item:last-child {
+      border-right: none;
+    }
+    .stat-item:hover {
+      background: #f8fdf8;
+    }
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--gray);
+      font-weight: 500;
+    }
+
+    /* Intro */
+    .actu-intro-section {
+      padding: 80px 0 40px;
+      background: var(--white);
+    }
+    .actu-intro-box {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .actu-intro-box h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+    .actu-intro-box p {
+      font-size: 1.05rem;
+      color: var(--gray);
+      line-height: 1.8;
+    }
+    .actu-intro-box strong {
+      color: var(--primary);
+    }
+
+    /* Feature Sections */
+    .actu-feature-section {
+      padding: 80px 0;
+      background: var(--white);
+    }
+    .actu-feature-section:nth-child(even) {
+      background: linear-gradient(180deg, #f8fdf8 0%, var(--white) 100%);
+    }
+    .actu-feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .actu-feature-text h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .actu-feature-text h2 span {
+      color: var(--primary);
+    }
+    .actu-feature-text > p {
+      font-size: 1rem;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .actu-feature-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .actu-feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .actu-feature-list li:last-child {
+      border-bottom: none;
+    }
+    .actu-feature-icon {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .actu-feature-icon svg {
+      width: 22px;
+      height: 22px;
+      color: var(--primary);
+    }
+    .actu-feature-content h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 2px;
+    }
+    .actu-feature-content p {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin: 0;
+    }
+    .actu-feature-img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+    }
+
+    /* Numbered Card */
+    .actu-numbered {
+      display: flex;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .actu-numbered:last-child {
+      border-bottom: none;
+    }
+    .actu-num {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+    .actu-num-content h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+    .actu-num-content p {
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Tips Grid */
+    .actu-tips-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .actu-tip-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 28px;
+      border: 1px solid #f0f0f0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+      transition: all 0.3s ease;
+    }
+    .actu-tip-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(46,125,50,0.1);
+      border-color: transparent;
+    }
+    .actu-tip-icon {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .actu-tip-icon svg {
+      width: 26px;
+      height: 26px;
+      color: var(--primary);
+    }
+    .actu-tip-card h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .actu-tip-card p {
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* CTA Section */
+    .actu-cta-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #0d1b2a 0%, #1b3a4b 50%, #2E7D32 100%);
+      color: var(--white);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .actu-cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255,111,0,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .actu-cta-section .container {
+      position: relative;
+      z-index: 1;
+    }
+    .actu-cta-section h2 {
       font-size: 2.2rem;
       font-weight: 700;
       margin-bottom: 16px;
     }
-    .page-hero p {
+    .actu-cta-section p {
       font-size: 1.1rem;
       opacity: 0.9;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .page-hero-img {
-      width: 100%;
-      max-height: 400px;
-      object-fit: cover;
-      border-radius: var(--radius);
-      margin-top: 32px;
-    }
-    .actu-section {
-      padding: 60px 0;
-    }
-    .actu-section:nth-child(even) {
-      background: var(--gray-bg);
-    }
-    .actu-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-    .actu-grid.reverse {
-      direction: rtl;
-    }
-    .actu-grid.reverse > * {
-      direction: ltr;
-    }
-    .actu-text h2 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 16px;
-    }
-    .actu-text h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 12px;
-    }
-    .actu-text p {
-      font-size: 0.95rem;
-      color: var(--gray);
+      max-width: 600px;
+      margin: 0 auto 32px;
       line-height: 1.7;
-      margin-bottom: 16px;
     }
-    .actu-list {
-      list-style: none;
-      margin: 16px 0;
-    }
-    .actu-list li {
-      padding: 8px 0 8px 28px;
-      position: relative;
-      font-size: 0.92rem;
-      color: var(--gray);
-      line-height: 1.6;
-    }
-    .actu-list li::before {
-      content: '✔';
-      position: absolute;
-      left: 0;
-      color: var(--primary);
-      font-weight: 700;
-    }
-    .actu-list li strong {
-      color: var(--dark);
-    }
-    .actu-img {
-      width: 100%;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .actu-intro {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 40px;
-    }
-    .actu-intro h2 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 16px;
-    }
-    .actu-intro p {
-      font-size: 1rem;
-      color: var(--gray);
-      line-height: 1.8;
-    }
-    .actu-cta {
-      text-align: center;
-      padding: 60px 0;
-      background: var(--primary);
-    }
-    .actu-cta h2 {
-      font-size: 1.8rem;
-      color: var(--white);
-      margin-bottom: 16px;
-    }
-    .actu-cta p {
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 24px;
-      font-size: 1rem;
-    }
-    .btn-white {
+    .btn-cta {
       background: var(--white);
-      color: var(--primary);
-      padding: 14px 32px;
+      color: var(--primary-dark);
+      padding: 16px 40px;
       border-radius: 50px;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 1rem;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      transition: var(--transition);
+      gap: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     }
-    .btn-white:hover {
-      background: var(--dark);
+    .btn-cta:hover {
+      background: var(--accent);
       color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .stat-item:nth-child(2) {
+        border-right: none;
+      }
+      .actu-tips-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
     @media (max-width: 768px) {
-      .actu-grid {
-        grid-template-columns: 1fr;
-      }
-      .actu-grid.reverse {
-        direction: ltr;
+      .page-hero {
+        padding: 120px 0 60px;
       }
       .page-hero h1 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
       }
-      .actu-text h2 {
-        font-size: 1.3rem;
+      .stats-grid {
+        grid-template-columns: 1fr;
+        margin: 0 16px;
+      }
+      .stat-item {
+        border-right: none;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      .stat-item:last-child {
+        border-bottom: none;
+      }
+      .actu-feature-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .actu-tips-grid {
+        grid-template-columns: 1fr;
+      }
+      .actu-cta-section h2 {
+        font-size: 1.6rem;
       }
     }
   </style>
@@ -237,46 +464,190 @@
     </div>
   </header>
 
-  <!-- Page Hero -->
+  <!-- Hero -->
   <section class="page-hero">
     <div class="container">
-      <h1>Actualités & Conseils Lutte contre les nuisibles et Hygiène en Restauration</h1>
-      <p>Restez informé des bonnes pratiques d'hygiène et de lutte contre les nuisibles pour votre établissement.</p>
+      <h1>Actualités & <span>Conseils</span></h1>
+      <p>Lutte contre les nuisibles et hygiène en restauration. Restez informé des bonnes pratiques pour votre établissement.</p>
     </div>
   </section>
 
-  <!-- HACCP Section -->
-  <section class="actu-section">
+  <!-- Stats Bar -->
+  <section class="stats-bar">
     <div class="container">
-      <div class="actu-intro">
-        <h2>L'hygiène et l'HACCP pour les CHR</h2>
-        <p>Maîtriser l'HACCP : Les 9 points clés pour votre établissement</p>
-      </div>
-      <div class="actu-grid">
-        <div>
-          <img src="http://tm-falco.com/wp-content/uploads/2026/03/Regles-de-base-HACCP-1024x1024.png" alt="Règles HACCP" class="actu-img">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">9</div>
+          <div class="stat-label">Points clés HACCP</div>
         </div>
-        <div class="actu-text">
-          <p>L'HACCP n'est pas qu'une contrainte, c'est un rempart pour votre établissement. En tant que consultant HACCP, nous accompagnons les professionnels du secteur dans la mise en place de protocoles stricts :</p>
-          <ul class="actu-list">
-            <li><strong>Contrôle rigoureux :</strong> De la réception des marchandises au stockage PEPS (Premier Entré, Premier Sorti).</li>
-            <li><strong>Hygiène irréprochable :</strong> Lavage des mains, tenue complète et nettoyage minutieux des surfaces pour éviter les contaminations croisées.</li>
-            <li><strong>Surveillance active :</strong> Un plan de gestion des nuisibles avec cartographie des pièges, indispensable pour la conformité sanitaire.</li>
-          </ul>
-          <a href="index.html#contact" class="btn btn-primary">En savoir plus sur nos audits HACCP</a>
+        <div class="stat-item">
+          <div class="stat-number">7j/7</div>
+          <div class="stat-label">Disponibilité</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Conformité</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5D</div>
+          <div class="stat-label">Solutions complètes</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="actu-cta">
+  <!-- Intro -->
+  <section class="actu-intro-section">
+    <div class="container">
+      <div class="actu-intro-box">
+        <h2>L'hygiène et l'HACCP pour les CHR</h2>
+        <p>L'HACCP n'est pas qu'une contrainte, c'est un <strong>rempart pour votre établissement</strong>. Nous accompagnons les professionnels du secteur dans la mise en place de protocoles stricts pour garantir conformité et sécurité sanitaire.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 Points HACCP -->
+  <section class="actu-feature-section">
+    <div class="container">
+      <div class="actu-feature-grid">
+        <div class="actu-feature-text">
+          <small style="display:block;font-size:0.85rem;font-weight:600;color:var(--primary);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">Guide pratique</small>
+          <h2>Maîtriser l'HACCP : <span>Les 9 points clés</span></h2>
+          <p>Les 9 principes fondamentaux de l'HACCP pour assurer la sécurité sanitaire de votre établissement.</p>
+          <div class="actu-numbered">
+            <div class="actu-num">1</div>
+            <div class="actu-num-content">
+              <h4>Analyse des dangers</h4>
+              <p>Identifier les risques biologiques, chimiques et physiques</p>
+            </div>
+          </div>
+          <div class="actu-numbered">
+            <div class="actu-num">2</div>
+            <div class="actu-num-content">
+              <h4>Points critiques</h4>
+              <p>Déterminer les CCP pour maîtriser chaque danger identifié</p>
+            </div>
+          </div>
+          <div class="actu-numbered">
+            <div class="actu-num">3</div>
+            <div class="actu-num-content">
+              <h4>Limites critiques</h4>
+              <p>Fixer les seuils max/min pour chaque CCP</p>
+            </div>
+          </div>
+          <div class="actu-numbered">
+            <div class="actu-num">4</div>
+            <div class="actu-num-content">
+              <h4>Surveillance</h4>
+              <p>Mettre en place un système de surveillance des CCP</p>
+            </div>
+          </div>
+          <div class="actu-numbered">
+            <div class="actu-num">5</div>
+            <div class="actu-num-content">
+              <h4>Actions correctives</h4>
+              <p>Définir les actions en cas de dépassement des limites</p>
+            </div>
+          </div>
+          <div class="actu-numbered">
+            <div class="actu-num">6</div>
+            <div class="actu-num-content">
+              <h4>Vérification</h4>
+              <p>Contrôler l'efficacité du système HACCP</p>
+            </div>
+          </div>
+          <div class="actu-numbered">
+            <div class="actu-num">7</div>
+            <div class="actu-num-content">
+              <h4>Traçabilité</h4>
+              <p>Documenter toutes les actions et mesures prises</p>
+            </div>
+          </div>
+          <div class="actu-numbered">
+            <div class="actu-num">8</div>
+            <div class="actu-num-content">
+              <h4>Hygiène des locaux</h4>
+              <p>Propreté irréprochable des surfaces et équipements</p>
+            </div>
+          </div>
+          <div class="actu-numbered">
+            <div class="actu-num">9</div>
+            <div class="actu-num-content">
+              <h4>Formation du personnel</h4>
+              <p>Sensibiliser et former les équipes aux bonnes pratiques</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <img src="http://tm-falco.com/wp-content/uploads/2026/03/Regles-de-base-HACCP-1024x1024.png" alt="Règles HACCP" class="actu-feature-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conseils Pratiques -->
+  <section class="actu-feature-section">
+    <div class="container">
+      <div class="actu-feature-grid" style="direction:rtl;">
+        <div style="direction:ltr;">
+          <img src="https://tm-falco.com/wp-content/uploads/2025/12/HACCPhotte-725x1024.png" alt="Conseils hygiène" class="actu-feature-img" style="max-width:400px;margin:0 auto;display:block;">
+        </div>
+        <div class="actu-feature-text" style="direction:ltr;">
+          <small style="display:block;font-size:0.85rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">Conseils pratiques</small>
+          <h2>Bonnes pratiques <span>d'hygiène</span></h2>
+          <p>Les gestes essentiels pour maintenir un environnement sain et conforme dans votre établissement.</p>
+          <ul class="actu-feature-list">
+            <li>
+              <div class="actu-feature-icon" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#1976D2;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="actu-feature-content">
+                <h4>Contrôle rigoureux</h4>
+                <p>De la réception au stockage PEPS</p>
+              </div>
+            </li>
+            <li>
+              <div class="actu-feature-icon" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#1976D2;"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <div class="actu-feature-content">
+                <h4>Hygiène irréprochable</h4>
+                <p>Lavage des mains, nettoyage des surfaces</p>
+              </div>
+            </li>
+            <li>
+              <div class="actu-feature-icon" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#1976D2;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="actu-feature-content">
+                <h4>Surveillance active</h4>
+                <p>Cartographie des pièges et plan de gestion</p>
+              </div>
+            </li>
+            <li>
+              <div class="actu-feature-icon" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#1976D2;"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <div class="actu-feature-content">
+                <h4>Conformité sanitaire</h4>
+                <p>Réussite des contrôles vétérinaires</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section class="actu-cta-section">
     <div class="container">
       <h2>Besoin de conseils pour votre établissement ?</h2>
       <p>Contactez-nous pour un audit HACCP ou des conseils personnalisés en hygiène et lutte contre les nuisibles.</p>
-      <a href="index.html#contact" class="btn-white">
+      <a href="index.html#contact" class="btn-cta">
         Contactez-nous
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
   </section>
